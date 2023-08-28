@@ -1,1 +1,19 @@
-<p>warehouse-list works!</p>
+
+
+<a routerLink="new">Create a new warehouse</a>
+<p-table [value]="newWarehouses" styleClass="p-datatable-striped p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Location</th>
+      <th>Item Limit</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-warehouse>
+    <tr>
+      <!--<td>{{ warehouse.id }}</td>-->
+      <td><a routerLink="{{warehouse.id}}/edit">{{ warehouse.location }}</a></td>
+      <td>{{ warehouse.itemLimit}}</td>
+    </tr>
+  </ng-template>
+</p-table>
+

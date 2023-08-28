@@ -1,1 +1,14 @@
-<p>warehouse-edit works!</p>
+<div class="container">
+    <form #warehouseForm="ngForm" (ngSubmit)="handleSubmit($event)">
+      <input type="hidden" name="id" [(ngModel)]="warehouse.id" />
+      <div class="form-group mb-3">
+        <label for="location">Location: </label>
+        <input type="text" class="form-control" name="location" id="location" [(ngModel)]="warehouse.location" required />
+      </div>
+      <div class="form-group mb-3">
+        <label for="itemLimit>Item Limit: "></label>
+        <input type="number" class="form-control" name="itemLimit" id="itemLimit" [(ngModel)]="warehouse.itemLimit" required />
+      </div>
+
+      <button type="" [disabled]="!warehouseForm.form.valid">Submit</button>
+    </form></div>

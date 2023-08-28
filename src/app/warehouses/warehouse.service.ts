@@ -17,19 +17,22 @@ export class WarehouseService {
     return this.http.get<Warehouse[]>(this.warehousesUrl);
   }
 
-  getUser(id: number): Observable<Warehouse> {
-    return this.http.get<Warehouse>(`${this.warehousesUrl}/${id}`);
+  getWarehouse(id: number): Observable<Warehouse> {
+    return this.http.get<Warehouse>(`${this.warehousesUrl}?id=${id}`);
   }
 
-  createUser(user: Warehouse): Observable<Warehouse> {
-    return this.http.post<Warehouse>(this.warehousesUrl, user);
+  createWarehouse(warehouse: Warehouse): Observable<Warehouse> {
+    return this.http.post<Warehouse>(this.warehousesUrl, warehouse);
   }
 
-  updateUser(user: Warehouse): Observable<Warehouse> {
-    return this.http.put<Warehouse>(`${this.warehousesUrl}/${user.id}`, user);
+  updateWarehouse(warehouse: Warehouse): Observable<Warehouse> {
+    console.log(warehouse);
+    //return this.http.put<Warehouse>(`${this.warehousesUrl}', warehouse);
+    return this.http.post<Warehouse>(this.warehousesUrl, warehouse);
+    
   }
 
-  deleteUser(id: number): Observable<Warehouse> {
-    return this.http.delete<Warehouse>(`${this.warehousesUrl}/${id}`);
+  deleteWarehouse(id: number): Observable<Warehouse> {
+    return this.http.delete<Warehouse>(`${this.warehousesUrl}?id=${id}`);
   }
 }
