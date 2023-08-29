@@ -1,15 +1,15 @@
 export class Item {
     id: number;
-    name: string;
-    desc: string;
+    itemName: string;
+    itemDescription: string;
    
     constructor(
         id: number = 0,
-        name: string = '',
-        desc: string = '')
+        itemName: string = '',
+        itemDescription: string = '')
      {   
         this.id = id;
-        this.name = name;
-        this.desc = desc;
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
   }

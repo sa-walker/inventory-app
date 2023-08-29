@@ -16,8 +16,8 @@ export class NewItemComponent {
   constructor(private router: Router, private fb: FormBuilder, private itemService: ItemService) { }
   itemForm = this.fb.group({
     id: [''],
-    name: ['', Validators.required],
-    desc: ['', Validators.required],
+    itemName: ['', Validators.required],
+    itemDescription: ['', Validators.required],
   });
 
   submitted = false;
@@ -27,11 +27,11 @@ export class NewItemComponent {
     this.submitted = true;
     let item: Item = new Item(
         this.itemForm.value.id as unknown as number,
-        this.itemForm.value.name as unknown as string,
-        this.itemForm.value.desc as unknown as string);
+        this.itemForm.value.itemName as unknown as string,
+        this.itemForm.value.itemDescription as unknown as string);
     
     console.log(item);
-    
+
     this.itemService.createItem(item).subscribe(data => {
           console.log(data.id);})
     this.router.navigate(['/items']);

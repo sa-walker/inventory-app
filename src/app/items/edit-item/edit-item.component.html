@@ -2,12 +2,12 @@
     <form #itemForm="ngForm" (ngSubmit)="handleSubmit($event)">
       <input type="hidden" name="id" [(ngModel)]="item.id" />
       <div class="form-group mb-3">
-        <label for="name">Name: </label>
-        <input type="text" class="form-control" name="name" id="name" [(ngModel)]="item.name" required />
+        <label for="itemName">Name: </label>
+        <input type="text" class="form-control" name="itemName" id="itemName" [(ngModel)]="item.itemName" required />
       </div>
       <div class="form-group mb-3">
-        <label for="desc">Description: </label>
-        <input type="text" class="form-control" name="desc" id="desc" [(ngModel)]="item.desc" required />
+        <label for="itemDescription">Description: </label>
+        <input type="text" class="form-control" name="itemDescription" id="itemDescription" [(ngModel)]="item.itemDescription" required />
       </div>
 
       <button type="" [disabled]="!itemForm.form.valid">Submit</button>

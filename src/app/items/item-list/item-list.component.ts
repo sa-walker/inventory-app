@@ -14,7 +14,7 @@ export class ItemListComponent {
 
   ngOnInit() {
     this.ItemService.getItems()
-      .subscribe(Items => this.newItems = Items);
+      .subscribe(items => this.newItems = items);
   }
 }
 
