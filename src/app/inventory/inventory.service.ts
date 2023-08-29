@@ -1,9 +1,39 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { InventoryItem } from './inventory-item';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InventoryService {
 
-  constructor() { }
+  private inventoryUrl: string = `${environment.apiUrl}inventory`; 
+
+  constructor(private http: HttpClient) { }
+
+  getItems(): Observable<InventoryItem[]> {
+    return this.http.get<InventoryItem[]>(this.inventoryUrl);
+  }
+
+  getItem(id: number): Observable<InventoryItem> {
+    return this.http.get<InventoryItem>(`${this.inventoryUrl}?id=${id}`);
+  }
+
+  createItem(inventoryItem: InventoryItem): Observable<InventoryItem> {
+    return this.http.post<InventoryItem>(this.inventoryUrl, inventoryItem);
+  }
+
+  updateItem(inventoryItem: InventoryItem): Observable<InventoryItem> {
+    console.log(inventoryItem);
+    //return this.http.put<InventoryItem>(`${this.inventoryUrl}', warehouse);
+    return this.http.post<InventoryItem>(this.inventoryUrl, inventoryItem);
+    
+  }
+
+  deleteItem(id: number): Observable<InventoryItem> {
+    return this.http.delete<InventoryItem>(`${this.inventoryUrl}?id=${id}`);
+  }
 }
+
