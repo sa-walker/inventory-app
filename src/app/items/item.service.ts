@@ -21,6 +21,10 @@ export class ItemService {
     return this.http.get<Item>(`${this.itemsUrl}?id=${id}`);
   }
 
+  getItemsNotInWarehouse(id: number): Observable<Item[]> {
+    return this.http.get<Item[]>(`${this.itemsUrl}/not-warehouse?id=${id}`);
+  }
+
   createItem(item: Item): Observable<Item> {
     return this.http.post<Item>(this.itemsUrl, item);
   }

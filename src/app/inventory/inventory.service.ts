@@ -21,6 +21,14 @@ export class InventoryService {
     return this.http.get<InventoryItem>(`${this.inventoryUrl}?id=${id}`);
   }
 
+  getItemsByWarehouse(id: number): Observable<InventoryItem[]> {
+    return this.http.get<InventoryItem[]>(`${this.inventoryUrl}/by-warehouse?id=${id}`);
+  }
+
+  getItemsByItem(id: number): Observable<InventoryItem[]> {
+    return this.http.get<InventoryItem[]>(`${this.inventoryUrl}/by-item?id=${id}`);
+  }
+
   createItem(inventoryItem: InventoryItem): Observable<InventoryItem> {
     return this.http.post<InventoryItem>(this.inventoryUrl, inventoryItem);
   }

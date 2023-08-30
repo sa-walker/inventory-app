@@ -6,6 +6,15 @@ import { EditInventoryComponent } from './edit-inventory/edit-inventory.componen
 import { InventoryItemComponent } from './inventory-item/inventory-item.component';
 import { InventoryService } from './inventory.service';
 import { InventoryRoutingModule } from './inventory-routing.module';
+import {NgFor} from '@angular/common';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDropList,
+  CdkDropListGroup,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -27,9 +36,28 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ReactiveFormsModule,
     InputTextModule,
     TableModule,
-    InventoryRoutingModule
+    InventoryRoutingModule,
+    CdkDropListGroup, CdkDropList, NgFor, CdkDrag
   ],
   providers: [InventoryService],
   exports: [InventoryItemComponent, InventoryListComponent, NewInventoryComponent, EditInventoryComponent]
 })
-export class InventoryModule { }
+export class InventoryModule { 
+
+  items = ['Carrots', 'Tomatoes', 'Onions', 'Apples', 'Avocados'];
+
+  basket = ['Oranges', 'Bananas', 'Cucumbers'];
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      );
+    }
+  }
+}
