@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from '../item.service';
 import { Item } from '../item';
@@ -11,6 +11,10 @@ import { Item } from '../item';
 })
 
 export class EditItemComponent implements OnInit {
+
+  @Output()
+  fetchDataEventEmitter = new EventEmitter();
+
   item: Item = new Item();
 
   submitted = false;
@@ -24,6 +28,7 @@ export class EditItemComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.itemService.getItem(id).subscribe(item => this.item = item);
+    this.fetchDataEventEmitter.emit();
   }
   handleSubmit($event: any) {
     $event.preventDefault();
