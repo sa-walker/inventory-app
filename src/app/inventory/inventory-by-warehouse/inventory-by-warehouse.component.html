@@ -1,0 +1,38 @@
+<!--<div>
+    <app-warehouse-edit></app-warehouse-edit>
+</div>-->
+
+  <input type="hidden" [(ngModel)]="currentWarehouse" value={{currentWarehouse}}/>
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>Available Items</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="available"
+        class="example-list"
+        cdkDropListSortingDisabled
+        (cdkDropListDropped)="dropItem($event)">
+        <div class="example-box" *ngFor="let item of available" cdkDrag>{{item.itemName}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Current Inventory</h2>
+      
+      <div
+      cdkDropList
+      [cdkDropListData]="existing"
+      class="example-list"
+      cdkDropListSortingDisabled
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let inventory of existing" cdkDrag>
+        <tr>
+            <td><label>{{ inventory.item.itemName }}</label></td>
+            <td><input type="text" class="form-control" pInputText id="quantity" value={{inventory.quantity}} required/></td>
+          </tr>
+      </div>
+    </div>
+     
+    </div>
+  </div>

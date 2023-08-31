@@ -17,18 +17,13 @@ export class AppComponent implements OnInit {
     this.items = [
       {
         label: 'Warehouses',
-        icon: 'pi pi-fw pi-home',
+        icon: 'pi pi-fw pi-building',
         routerLink: '/warehouses'
       },
       {
         label: 'Items',
-        icon: 'pi pi-fw pi-users',
+        icon: 'pi pi-fw pi-gift',
         routerLink: '/items'
-      },
-      {
-        label: 'Inventory',
-        icon: 'pi pi-fw pi-building',
-        routerLink: '/inventory'
       }
     ];
   }

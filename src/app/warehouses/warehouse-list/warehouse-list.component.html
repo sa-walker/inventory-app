@@ -1,10 +1,14 @@
 
 
-<a routerLink="new">Create a new warehouse</a>
+
 <p-table [value]="newWarehouses" styleClass="p-datatable-striped p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template pTemplate="header">
     <tr>
-      <th>Location</th>
+      <th>
+        <table><tr>
+          <td align="right"><i class="pi pi-plus-circle" style="font-size: 2rem" routerLink="new"></i></td>
+          <td>Location</td></tr>
+        </table></th>
       <th>Item Limit</th>
     </tr>
   </ng-template>

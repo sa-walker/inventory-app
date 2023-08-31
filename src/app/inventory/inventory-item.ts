@@ -1,18 +1,27 @@
+import { Warehouse } from "../warehouses/warehouse";
+import { Item } from "../items/item";
+
 export class InventoryItem {
     id: number;
-    itemId: number;
-    warehouseId: number;
+    item: Item;
+    warehouse: Warehouse;
     quantity: number;
+    itemName: string;
+    itemDescription: string;
    
     constructor(
         id: number = 0,
-        itemId: number = 0,
-        warehouseId: number = 0,
-        quantity: number = 0)
+        item: Item = new Item(),
+        warehouse: Warehouse = new Warehouse(),
+        quantity: number = 0, 
+        itemName: string = '',
+        itemDescription: string = '')
      {   
         this.id = id;
-        this.itemId = itemId;
-        this.warehouseId = warehouseId;
+        this.item = item;
+        this.warehouse = warehouse;
         this.quantity = quantity;
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
     }
   }

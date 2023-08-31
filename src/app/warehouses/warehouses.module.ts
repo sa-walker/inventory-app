@@ -6,6 +6,7 @@ import { WarehouseRoutingModule } from './warehouse-routing.module';
 import { NewWarehouseComponent } from './new-warehouse/new-warehouse.component';
 import { WarehouseEditComponent } from './warehouse-edit/warehouse-edit.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { InventoryModule } from '../inventory/inventory.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
@@ -24,7 +25,8 @@ import { TableModule } from 'primeng/table';
     ReactiveFormsModule,
     InputTextModule,
     TableModule,
-    WarehouseRoutingModule
+    WarehouseRoutingModule, 
+    InventoryModule,
   ],
 
   providers: [WarehouseService],

@@ -8,10 +8,6 @@ const routes: Routes = [
   },
   { path: 'items',
     loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
-  },
-  {
-    path: 'inventory',
-    loadChildren: () => import('./inventory/inventory.module').then(m => m.InventoryModule)
   }
 ];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { WarehouseService } from '../warehouse.service';
@@ -12,7 +12,7 @@ import { Warehouse } from '../warehouse';
 
 export class WarehouseEditComponent implements OnInit {
   warehouse: Warehouse = new Warehouse();
-
+  currentWarehouse: number = 0;
   submitted = false;
 
   constructor(
@@ -23,6 +23,7 @@ export class WarehouseEditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.currentWarehouse = id;
     this.warehouseService.getWarehouse(id).subscribe(warehouse => this.warehouse = warehouse);
   }
   handleSubmit($event: any) {

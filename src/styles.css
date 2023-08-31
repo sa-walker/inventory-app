@@ -1,9 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-@import 'primeng/resources/themes/bootstrap4-dark-blue/theme.css';
+@import 'primeng/resources/themes/nova-accent/theme.css';
 @import 'primeng/resources/primeng.css';
-/*@import "primeicons/primeicons.css";*/
+@import "primeicons/primeicons.css";
 
 body {
   font-family: var(--font-family);
+}
+
+.form-control{
+  padding: 10px;
+  border: none;
+  border-bottom: solid 1px #ccc;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+label{
+  display: inline-block;
+  width: 100px;
+  text-align: left;
 }
