@@ -1,22 +1,17 @@
-<div class="container">
+<div class="example-box">
     <form #warehouseForm="ngForm" (ngSubmit)="handleSubmit($event)">
-      <table>
-        <tr><td>
-          <div class="form-group mb-3">
+          <div>
             <label for="location">Location: </label>
             <input type="text" class="form-control" name="location" id="location" [(ngModel)]="warehouse.location" required />
           </div>
-        </td>
-        <td>
-          <div class="form-group mb-3">
+
+          <div>
             <label for="itemLimit">Item Limit: </label>
             <input type="number" class="form-control" name="itemLimit" id="itemLimit" [(ngModel)]="warehouse.itemLimit" required />
           </div>
-        </td>
-      <td>
+
         <button type="" [disabled]="!warehouseForm.form.valid">Update</button>
-      </td></tr>
-      </table>
+
       <input type="hidden" name="id" [(ngModel)]="warehouse.id" />
       
     </form></div>

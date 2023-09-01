@@ -39,14 +39,10 @@ describe('EditItemComponent', () => {
     });
 
     it('should call getItem method', () => {
-        // make the deleteProduct method return an observable of empty string
+        // make the getItem method return an observable of a mockItem
         mockItemService.getItem.and.returnValue(of(mockItem));
-        // spy on the emission
-        const emitSpy = spyOn(component.fetchDataEventEmitter, 'emit');
-    
         component.ngOnInit();
-    
-        expect(emitSpy).toHaveBeenCalled();
+        expect(mockItemService.getItem).toHaveBeenCalled();
 
       });
 

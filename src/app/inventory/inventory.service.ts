@@ -16,6 +16,9 @@ export class InventoryService {
   getItems(): Observable<InventoryItem[]> {
     return this.http.get<InventoryItem[]>(this.inventoryUrl);
   }
+  getInventoryLevels(): Observable<Object[]> {
+    return this.http.get<Object[]>(`${this.inventoryUrl}/levels`);
+  }
 
   getItem(id: number): Observable<InventoryItem> {
     return this.http.get<InventoryItem>(`${this.inventoryUrl}?id=${id}`);

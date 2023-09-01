@@ -29,7 +29,8 @@
       <div class="example-box" *ngFor="let inventory of existing" cdkDrag>
         <tr>
             <td><label>{{ inventory.item.itemName }}</label></td>
-            <td><input type="text" class="form-control" pInputText id="quantity" value={{inventory.quantity}} required/></td>
+            <td><input type="text" class="form-control" pInputText [(ngModel)]="inventory.quantity" required/></td>
+            <td><i class="pi pi-check" style="font-size: 1rem" id={{inventory.item.id}} (click)="updateInventoryItem(inventory)"></i></td>
           </tr>
       </div>
     </div>

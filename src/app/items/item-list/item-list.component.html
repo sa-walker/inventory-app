@@ -1,17 +1,22 @@
 
-<a routerLink="new">Create a new item</a>
 <p-table [value]="newItems" styleClass="p-datatable-striped p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template pTemplate="header">
     <tr>
-      <th>Name</th>
+      <th style="width:25px"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"/></th>
+      <th>
+        <table><tr>
+          <td align="right"><i class="pi pi-plus-circle" style="font-size: 1rem" routerLink="new"></i></td>
+          <td>Item</td></tr>
+        </table></th>
       <th>Description</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-item>
     <tr>
-      <!--<td>{{ warehouse.id }}</td>-->
+      <td><input type="checkbox" value="{{item.id}}" [(ngModel)]="item.checked"></td>
       <td><a routerLink="{{item.id}}/edit">{{ item.itemName }}</a></td>
       <td>{{ item.itemDescription }}</td>
     </tr>
   </ng-template>
 </p-table>
+<button (click)="deleteItems($event)">Delete</button>

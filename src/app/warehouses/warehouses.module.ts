@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WarehouseComponent } from './warehouse/warehouse.component';
 import { WarehouseService } from './warehouse.service';
 import { WarehouseRoutingModule } from './warehouse-routing.module';
 import { NewWarehouseComponent } from './new-warehouse/new-warehouse.component';
@@ -14,7 +13,6 @@ import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
-    WarehouseComponent,
     NewWarehouseComponent,
     WarehouseEditComponent,
     WarehouseListComponent
@@ -30,6 +28,6 @@ import { TableModule } from 'primeng/table';
   ],
 
   providers: [WarehouseService],
-  exports: [WarehouseComponent, WarehouseListComponent, NewWarehouseComponent, WarehouseEditComponent]
+  exports: [WarehouseListComponent, NewWarehouseComponent, WarehouseEditComponent]
 })
 export class WarehousesModule { }

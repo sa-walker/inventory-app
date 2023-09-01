@@ -31,6 +31,8 @@ export class WarehouseEditComponent implements OnInit {
     this.submitted = true;
     this.warehouseService.updateWarehouse(this.warehouse).subscribe(data => {
       console.log(data.id);})
-    this.router.navigate(['/warehouses']);
+
+    this.router.navigate(['/inventory-by-warehouse', this.currentWarehouse]);
+
   }
 }

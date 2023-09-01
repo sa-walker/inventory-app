@@ -4,20 +4,23 @@
 <p-table [value]="newWarehouses" styleClass="p-datatable-striped p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
   <ng-template pTemplate="header">
     <tr>
+      <th style="width:25px"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"/></th>
       <th>
         <table><tr>
-          <td align="right"><i class="pi pi-plus-circle" style="font-size: 2rem" routerLink="new"></i></td>
+          <td align="right"><i class="pi pi-plus-circle" style="font-size: 1rem" routerLink="new"></i></td>
           <td>Location</td></tr>
         </table></th>
-      <th>Item Limit</th>
+      <th>Capacity</th>
     </tr>
   </ng-template>
+  
   <ng-template pTemplate="body" let-warehouse>
     <tr>
-      <!--<td>{{ warehouse.id }}</td>-->
+      <td><input type="checkbox" value="{{warehouse.id}}" [(ngModel)]="warehouse.checked"></td>
       <td><a routerLink="{{warehouse.id}}/edit">{{ warehouse.location }}</a></td>
       <td>{{ warehouse.itemLimit}}</td>
     </tr>
   </ng-template>
 </p-table>
+<button (click)="deleteWarehouses($event)">Delete</button>
 

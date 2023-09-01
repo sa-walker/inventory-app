@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Warehouse } from './warehouse';
 import { environment } from 'src/environments/environment.development';
@@ -32,7 +32,7 @@ export class WarehouseService {
     
   }
 
-  deleteWarehouse(id: number): Observable<Warehouse> {
-    return this.http.delete<Warehouse>(`${this.warehousesUrl}?id=${id}`);
+  deleteWarehouse(id: number): Observable<Object> {
+    return this.http.delete(`${this.warehousesUrl}?id=${id}`)
   }
 }

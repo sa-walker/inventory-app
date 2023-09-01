@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InventoryListComponent } from './inventory-list/inventory-list.component';
-import { NewInventoryComponent } from './new-inventory/new-inventory.component';
-import { EditInventoryComponent } from './edit-inventory/edit-inventory.component';
-import { InventoryItemComponent } from './inventory-item/inventory-item.component';
 import { InventoryService } from './inventory.service';
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { InventoryByWarehouseComponent } from './inventory-by-warehouse/inventory-by-warehouse.component';
@@ -28,10 +24,6 @@ import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
-    InventoryListComponent,
-    NewInventoryComponent,
-    EditInventoryComponent,
-    InventoryItemComponent,
     InventoryByWarehouseComponent,     
   ],
   imports: [
@@ -46,10 +38,6 @@ import { TableModule } from 'primeng/table';
   ],
   providers: [InventoryService],
   exports: [
-    InventoryItemComponent, 
-    InventoryListComponent, 
-    NewInventoryComponent, 
-    EditInventoryComponent,
     InventoryByWarehouseComponent,
   ]
 })

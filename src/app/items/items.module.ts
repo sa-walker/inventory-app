@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ItemComponent } from './item/item.component';
 import { ItemService } from './item.service';
 import { ItemRoutingModule } from './item-routing.module';
 import { NewItemComponent } from './new-item/new-item.component';
@@ -13,7 +12,6 @@ import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
-    ItemComponent,
     NewItemComponent,
     EditItemComponent,
     ItemListComponent
@@ -28,7 +26,7 @@ import { TableModule } from 'primeng/table';
   ],
 
   providers: [ItemService],
-  exports: [ItemComponent, ItemListComponent, NewItemComponent, EditItemComponent]
+  exports: [ItemListComponent, NewItemComponent, EditItemComponent]
 })
 export class ItemsModule { }
 

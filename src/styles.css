@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-@import 'primeng/resources/themes/nova-accent/theme.css';
+@import 'primeng/resources/themes/soho-light/theme.css';
 @import 'primeng/resources/primeng.css';
 @import "primeicons/primeicons.css";
 
@@ -14,6 +14,8 @@ body {
   border-bottom: solid 1px #ccc;
   box-sizing: border-box;
   font-size: 14px;
+  border-radius: 25px;
+  text-align: center;
 }
 
 label{
@@ -21,3 +23,24 @@ label{
   width: 100px;
   text-align: left;
 }
+
+table{
+  border-radius: 25px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.example-box {
+  padding: 20px 10px;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
